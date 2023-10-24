@@ -26,7 +26,9 @@ class ForcastController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $forcast = new Forcast();
-        $form = $this->createForm(ForcastType::class, $forcast);
+        $form = $this->createForm(ForcastType::class, $forcast,[
+            'validation_groups'=>'create',
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +55,9 @@ class ForcastController extends AbstractController
     #[Route('/{id}/edit', name: 'app_forcast_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Forcast $forcast, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(ForcastType::class, $forcast);
+        $form = $this->createForm(ForcastType::class, $forcast,[
+            'validation_groups'=>'edit',
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
