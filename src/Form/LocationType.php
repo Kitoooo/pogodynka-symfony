@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Location;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -29,9 +30,12 @@ class LocationType extends AbstractType
                     'United States'=>'US',
                 ],
             ])
-            ->add('latitude')
-            ->add('longitude')
-        ;
+            ->add('latitude', NumberType::class,[
+                'html5'=>true,
+            ])
+            ->add('longitude',NumberType::class,[
+                'html5'=>true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
