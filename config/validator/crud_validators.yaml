@@ -22,19 +22,12 @@ App\Entity\Location:
           groups: [ 'create','edit' ]
 
 
-  App\Entity\Forcast:
-    properties:
-      precipation_probability:
-        - NotBlank:
-            groups: ['create','edit']
-        - Range:
-            min: 0
-            max: 100
-            groups: ['create','edit']
-      temperature:
-        - NotBlank:
-            groups: ['create','edit']
-      date:
-        - NotBlank:
-            groups: ['create','edit']
-
+App\Entity\Forcast:
+  properties:
+    precipation_probability:
+      - NotBlank:
+         groups: ['create','edit']
+      - Range:
+         min: 0
+         max: 100
+         groups: ['create','edit']
