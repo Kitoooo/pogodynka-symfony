@@ -41,7 +41,7 @@ class ForcastRepository extends ServiceEntityRepository
             ->setParameter('city', $city);
 
         if ($countryCode) {
-            $qb->andWhere('l.country = :tryCode')
+            $qb->andWhere('l.country = :countryCode')
                 ->setParameter('countryCode', $countryCode);
         }
 
