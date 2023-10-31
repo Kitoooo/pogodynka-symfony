@@ -20,8 +20,11 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            http_basic:
-                realm: "My Secured Area"
+            form_login:
+                login_path: app_login
+                check_path: app_login
+            logout:
+                path: app_logout
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -35,6 +38,21 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^, roles: PUBLIC_ACCESS }
+
+    role_hierarchy:
+        ROLE_ADMIN:
+            - ROLE_USER
+            - ROLE_LOCATION_NEW
+            - ROLE_LOCATION_EDIT
+            - ROLE_LOCATION_DELETE
+            - ROLE_FORCAST_NEW
+            - ROLE_FORCAST_EDIT
+            - ROLE_FORCAST_DELETE
+        ROLE_USER:
+            - ROLE_LOCATION_INDEX
+            - ROLE_LOCATION_SHOW
+            - ROLE_FORCAST_INDEX
+            - ROLE_FORCAST_SHOW
 
 when@test:
     security:
