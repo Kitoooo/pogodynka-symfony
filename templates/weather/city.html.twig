@@ -3,11 +3,11 @@
 {# var location \App\Enity\Location #}
 {# var forcast \App\Entity\Forcast #}
 
-{% block title %}Weather in {{ city }}, {{ country }}{% endblock %}
+{% block title %}Weather in {{ location.city }}, {{ location.country }}{% endblock %}
 
 {% block body %}
     <main>
-        <h1>Weather in {{ city }}, {{ country }}</h1>
+        <h1>Weather in {{ location.city }}, {{ location.country }}</h1>
 
         <ul>
             {% for forcast in forcasts %}
