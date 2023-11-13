@@ -1,0 +1,6 @@
+city,countryCode,date,celsius,fahrenheit,feelsLikeTemp,humidity,windSpeed
+<br>
+{% for forcast in forcasts %}
+{{city}},{{countryCode}},{{forcast.date}},{{forcast.celsius}},{{ forcast.fahrenheit }},{{forcast.feelsLikeTemp}},{{forcast.humidity}},{{forcast.windSpeed}}
+<br>
+{% endfor %}
