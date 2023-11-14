@@ -1,0 +1,15 @@
+{
+    "city": {{ city }},
+    "countryCode": {{ countryCode }},
+    "forcasts": [
+        {% for forcast in forcasts %}{
+            "date": {{ forcast.date }},
+            "celsius": {{ forcast.celsius }},
+            "fahrenheit": {{ forcast.fahrenheit }},
+            "feelsLikeTemp": {{ forcast.feelsLikeTemp }},
+            "humidity": {{ forcast.humidity }},
+            "windSpeed": {{ forcast.windSpeed }}
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+}
